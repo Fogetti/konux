@@ -1,0 +1,35 @@
+<div ng-controller="LandingCtrl">
+  <div role="navigation" class="navbar navbar-default">
+    <div class="navbar-header">
+    </div>
+    <div class="navbar-center navbar-brand" href="#">
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><div>Welcome {{ firstName }} {{ lastName }}</div></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li data-type="alma"><a href="#">Alma</a></li>
+            <li class="active" data-type="korte"><a href="#">Korte</a></li>
+            <li data-type="barack"><a href="#">Barack</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="form-container" class="container">
+
+    <form name="landingForm" class="form-signin">
+      <label for="inputFirstName">First Name</label>
+      <input type="firstName" ng-model="firstName" name="inputFirstName" id="inputFirstName" class="form-control" placeholder="First Name" name-validated>
+      <span ng-show="landingForm.inputFirstName.$touched && landingForm.inputFirstName.$invalid">The first name is invalid.</span>
+      <label for="inputLastName">Last Name</label>
+      <input type="lastName" ng-model="lastName" name="inputLastName" id="inputLastName" class="form-control" placeholder="Last Name" name-validated>
+      <span ng-show="landingForm.inputLastName.$touched&& landingForm.inputLastName.$invalid">The last name is invalid.</span>
+    </form>
+
+  </div> <!-- /container -->
+</div>

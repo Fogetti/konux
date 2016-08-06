@@ -1,0 +1,12 @@
+{
+  "test": {
+    "ENV": {
+      "api": "/user/:userId"
+    }
+  },
+  "prod": {
+    "ENV": {
+      "api": "https://demo0638116.mockable.io/user/:userId"
+    }
+  }
+}
