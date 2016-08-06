@@ -1,2 +1,2 @@
 angular.module("konux.config", [])
-.constant("ENV", {"api":"/user/:userId"});
+.constant("ENV", {"api":"https://demo0638116.mockable.io/user/:userId"});

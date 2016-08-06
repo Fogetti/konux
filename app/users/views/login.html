@@ -1,17 +1,18 @@
 <div class="container">
 
-  <form name="loginForm" role="form" class="form-horizontal form-signin" ng-controller="KonuxCtrl">
+  <form name="loginForm" id="loginForm" role="form" class="form-horizontal form-signin" ng-controller="KonuxCtrl">
     <div class="form-group">
       <h2 class="form-signin-heading">Please sign in</h2>
     </div>
-    <div class="form-group">
+    <div id="inputFields" class="form-group" ng-class="{ 'has-error': (loginForm.inputEmail.$dirty && loginForm.inputEmail.$invalid) || (loginForm.inputPassword.$dirty && loginForm.inputPassword.$invalid) }">
+      <input type="hidden" ng-model="loginFailed" name="loginFailed">
       <label for="inputEmail">Email address</label>
-      <input type="email" ng-model="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" ng-model="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" title="Username or password does not match" data-placement="right" required autofocus>
       <label for="inputPassword">Password</label>
-      <input type="password" ng-model="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" ng-model="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
     </div>
     <div class="form-group">
-      <button class="btn btn-lg btn-primary btn-block" ng-click="login()">Log in</button>
+      <button class="btn btn-lg btn-primary btn-block" ng-click="login( $event )">Log in</button>
       <button class="btn btn-lg btn-primary btn-block" ng-click="go('/register')">Register</button>
     </div>
   </form>

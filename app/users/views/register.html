@@ -1,18 +1,24 @@
-<div class="container">
+<div class="container" ng-controller="RegisterCtrl">
 
-  <form name="registerForm" class="form-signin form-horizontal" ng-submit="registerForm.$valid && create()" ng-controller="RegisterCtrl">
+  <form id="registerForm" name="registerForm" class="form-signin form-horizontal" ng-submit="registerForm.$valid && create()">
     <div class="form-group">
       <h2 class="form-signin-heading">Please sign up</h2>
     </div>
+
+    <div class="alert alert-danger" ng-init="alert()" ng-show="alertFailure">
+      <strong>{{ alertTitle }}</strong>
+    </div>
+
     <div class="form-group">
-      <div class="col-md-6">
+      <div class="col-md-6" ng-class="{ 'has-error': (registerForm.inputEmail.$touched && registerForm.inputEmail.$invalid) || (registerForm.inputPassword.$touched && registerForm.inputPassword.$invalid) }">
         <label for="inputEmail">Email address</label>
-        <input type="email" ng-model="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" ng-model="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword">Password</label>
         <input type="password" ng-model="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required  password-validated>
-        <span ng-show="registerForm.inputPassword.$touched && registerForm.inputPassword.$invalid">The password is invalid.</span>
+        <span ng-show="registerForm.inputPassword.$dirty && registerForm.inputPassword.$invalid">The password is invalid.</span>
       </div>
-      <div class="col-md-6">
+
+      <div class="col-md-6" ng-class="{ 'has-error': (registerForm.inputFirstName.$touched && registerForm.inputFirstName.$invalid) || (registerForm.inputLastName.$touched && registerForm.inputLastName.$invalid) }">
         <label for="inputFirstName">First Name</label>
         <input type="firstName" ng-model="firstName" name="inputFirstName" id="inputFirstName" class="form-control" placeholder="First Name" required name-validated>
         <span ng-show="registerForm.inputFirstName.$touched && registerForm.inputFirstName.$invalid">The first name is invalid.</span>

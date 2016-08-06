@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "Konux hands-on task",
-  "repository": "https://github.com/angular/konux",
+  "repository": "https://github.com/Fogetti/konux",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",

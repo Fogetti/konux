@@ -90,8 +90,7 @@ describe("Users Factory", function() {
             done();            
           });
         },function(){});
-        $httpBackend.flush();
-        
+        $httpBackend.flush();        
     });
 
     it("remove user successful", function(done) {
